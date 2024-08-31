@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "build": "pkg -t node10-win-x64 task-tracker.cjs -o task-tracker.exe"
+  },
+  "pkg": {
+    "targets": [
+      "node10-win-x64"
+    ]
+  }
+}
