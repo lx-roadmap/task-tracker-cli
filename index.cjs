@@ -101,10 +101,10 @@ fs.readFile(DATAPATH, 'utf8', (err_, data) => {
       let st = args[1]
       let format_date = (date) => {
         date = new Date(date)
-        return `${date.getFullYear()}/${date.getMonth()}/${date.getUTCDay()}`
+        return `${date.getFullYear()}/${date.getMonth()+1}/${date.getUTCDate()} ${date.getHours()}:${date.getMinutes()}`
       }
       let print = (arr) => {
-        console.log('id\tdescription\tstatus\tcreatedAt\tupdateAt')
+        console.log('id\t\tdescription\tstatus\tcreatedAt\tupdateAt')
         arr.forEach(v => {
           let color = v.status === 'todo' ? '\x1b[31m' : (v.status === 'in-progress' ? '\x1b[33m' : '\x1b[32m')
           console.log(`${v.id}\t${color}${v.description}\x1b[37m\t${v.status}\t${format_date(v.createdAt)}\t${format_date(v.updateAt)}`)
