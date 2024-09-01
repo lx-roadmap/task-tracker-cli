@@ -25,13 +25,13 @@ fs.readFile(DATAPATH, 'utf8', (err_, data) => {
     query: (x) => data
       .map((v, i) => ({...v, _idx: i}))
       .filter(v => {
-      for (let k in x) {
-        if (x[k] && x[k] !== v[k]) {
-          return false
+        for (let k in x) {
+          if (x[k] && x[k] !== v[k]) {
+            return false
+          }
         }
-      }
-      return true
-    })
+        return true
+      })
   }
 
   let cmd_handler = {
